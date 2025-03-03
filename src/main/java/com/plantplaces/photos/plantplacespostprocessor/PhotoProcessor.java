@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import javax.imageio.ImageIO;
 
 import org.springframework.jms.annotation.JmsListener;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 import net.coobird.thumbnailator.Thumbnails;
@@ -17,7 +18,8 @@ import net.coobird.thumbnailator.geometry.Positions;
 @Component
 public class PhotoProcessor {
 	
-	@JmsListener(destination="photos")
+	//@JmsListener(destination="photos")
+	@KafkaListener(topics="photoIn", groupId="plantplaces")
 	public void processPhoto(String path) {
 		System.out.println("Path is: "+path);
 		File file = new File(path);
