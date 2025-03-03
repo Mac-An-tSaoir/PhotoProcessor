@@ -25,7 +25,7 @@ public class PhotoProcessor {
 		Path fileName = Paths.get(path).getFileName();
 		String thumbNailFullPath = photoPath + File.separator + "thumbnail" + File.separator + fileName;
 		File thumbNailFile = new File(thumbNailFullPath);
-		String watermarkPath = photoPath + File.separator + "watermark2.png";
+		String watermarkPath = photoPath + File.separator + "watermark.png";
 		File watermarkFile = new File(watermarkPath);
 		try {
 			BufferedImage watermark = ImageIO.read(watermarkFile);
